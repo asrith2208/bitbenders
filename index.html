@@ -1,29 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bit Benders - Coming Soon</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bit Benders - Shape Your Tech Future</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles from user provided HTML */
+        .glassmorphism {
+            backdrop-filter: blur(25px) saturate(150%);
+            -webkit-backdrop-filter: blur(25px) saturate(150%);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s cubic-bezier(0.83, 0, 0.17, 1);
+        }
+        
+        html.light .glassmorphism {
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        html.dark .glassmorphism {
+            background: rgba(10, 10, 10, 0.3); 
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 50px rgba(0, 0, 0, 0.5); 
+        }
+
+        .liquid-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1.5rem; 
+            transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+            transform-style: preserve-3d;
+        }
+
+        html.dark .liquid-card {
+             background: rgba(15, 15, 15, 0.5); 
+             border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        html.light .liquid-card {
+             background: rgba(255, 255, 255, 0.7);
+             border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .liquid-card:hover {
+            transform: translateY(-10px) scale(1.02); 
+            box-shadow: 0 40px 80px -15px rgba(0, 0, 0, 0.9), 0 0 40px rgba(167, 139, 250, 0.4);
+        }
+
+        .card-glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(167, 139, 250, 0.3), transparent 30%);
+            opacity: 0;
+            transition: opacity 0.5s;
+            pointer-events: none; 
+            z-index: 10;
+        }
+        .group:hover .card-glow {
+            opacity: 0.8;
+        }
+
+        .gradient-text {
+            background-image: linear-gradient(45deg, #8B5CF6, #EC4899, #F59E0B);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        @keyframes subtle-pulse {
+            0%, 100% { opacity: 0.85; }
+            50% { opacity: 1; }
+        }
+        .animate-subtle-pulse {
+            animation: subtle-pulse 6s infinite ease-in-out;
+        }
+        
+        @keyframes pulse-slow {
+            50% { opacity: .7; }
+        }
+        .animate-pulse-slow {
+            animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1.2s cubic-bezier(0.19, 1, 0.22, 1), transform 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .magnetic-link {
+            transition: transform 0.2s ease-out;
+            will-change: transform;
+            display: inline-block;
+        }
+        
+        .hero-visual-box {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            min-height: 400px;
+            border-radius: 2rem;
+            transform-style: preserve-3d;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+            transform: perspective(1000px) rotateX(1deg) rotateY(-2deg) scale(1.05);
+        }
+        html.dark .hero-visual-box {
+             background: rgba(10, 10, 10, 0.5); 
+        }
+
+        .domain-pill {
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            border: 1px solid;
+            transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+            display: inline-block;
+        }
+        
+        html.dark .domain-pill {
+            background: rgba(139, 92, 246, 0.1);
+            color: #A78BFA;
+            border-color: rgba(139, 92, 246, 0.3);
+        }
+        html.dark .domain-pill:hover {
+            background: rgba(139, 92, 246, 0.2); 
+            box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+            transform: translateY(-2px);
+        }
+
+        html.light .domain-pill {
+            background: rgba(230, 230, 255, 0.6);
+            color: #5B21B6;
+            border-color: rgba(99, 102, 241, 0.4);
+        }
+        html.light .domain-pill:hover {
+            background: rgba(200, 200, 255, 0.8);
+            box-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
+            transform: translateY(-2px);
+        }
+
+    </style>
+    <script>
+      tailwind.config = {
+          darkMode: "class",
+          theme: {
+              extend: {
+                  colors: {
+                      primary: { DEFAULT: '#3B82F6' },
+                      'background-light': '#F8FAFC',
+                      'background-dark': '#070707',
+                      'card-light': '#FFFFFF',
+                      'card-dark': '#111111',
+                      'indigo-400': '#818CF8',
+                      'teal-400': '#2DD4BF',
+                      'purple-400': '#A78BFA',
+                      'red-400': '#F87171',
+                  },
+                  fontFamily: {
+                      display: ["Sora", "Poppins", "sans-serif"],
+                  },
+                  borderRadius: {
+                      'lg': '1.5rem',
+                      'xl': '2rem',
+                  },
+              },
+          },
+      };
+    </script>
+<script type="importmap">
+{
+  "imports": {
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.3",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
 </head>
-<body>
-    <div class="container">
-        <div class="content">
-            <h1 class="logo">Bit Benders</h1>
-            <p class="tagline">Your ecosystem for student innovation is brewing.</p>
-            <h2 class="main-text" id="typewriter"></h2>
-            <p class="stay-tuned">Join our waitlist to be the first to know when we launch!</p>
-            
-            <form class="newsletter-form" id="waitlistForm">
-                <input type="email" placeholder="Enter your email..." required>
-                <button type="submit">Stay Tuned</button>
-            </form>
-            <p class="form-message" id="formMessage"></p>
-        </div>
-    </div>
-    <script src="script.js"></script>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased overflow-x-hidden transition-colors duration-500">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
 </body>
 </html>
