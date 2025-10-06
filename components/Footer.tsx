@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                     <div>
                         <div className="flex items-center space-x-2">
-                            <img src="logo.png" alt="Bit Benders Logo" className="h-8 w-8" />
+                            <img src="/logo.png" alt="Bit Benders Logo" className="h-8 w-8" />
                             <h4 className="font-bold text-gray-900 dark:text-white">Bit Benders</h4>
                         </div>
                         <p className="text-sm">Shape Your Tech Future.</p>

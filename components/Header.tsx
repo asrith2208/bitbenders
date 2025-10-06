@@ -29,7 +29,7 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
             <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 glassmorphism shadow-md">
                 <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
                     <Link to="/" onClick={() => setIsMenuOpen(false)} className="flex items-center space-x-2">
-                        <img className="h-8 w-8" src="logo.png" alt="Bit Benders Logo" />
+                        <img className="h-8 w-8" src="/logo.png" alt="Bit Benders Logo" />
                         <span className="text-xl font-bold text-gray-900 dark:text-gray-100">Bit Benders</span>
                     </Link>
                     <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
