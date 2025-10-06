@@ -1,72 +1,146 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react'; // <-- Import useState, useEffect, useRef
 import { Link } from 'react-router-dom';
 import { FEATURED_ROADMAPS } from '../constants';
 import ScrollReveal from '../components/ScrollReveal';
 import LiquidCard from '../components/LiquidCard';
 
-const HeroSection: React.FC = () => (
-    <section className="container mx-auto px-6 py-20 flex flex-col lg:flex-row items-center justify-between min-h-[70vh]">
-        <div className="lg:w-1/2 mb-10 lg:mb-0">
-            <ScrollReveal>
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-4 text-gray-900 dark:text-gray-100">
-                    Shape Your <span className="gradient-text animate-subtle-pulse">Tech Future</span>
-                </h1>
-                <p className="text-lg md:text-xl max-w-lg text-gray-600 dark:text-gray-400 mb-8">
-                    Join the ultimate platform for student developers. Learn, build, earn, and connect with the future of technology.
-                </p>
+const HeroSection: React.FC = () => {
+    const [isMuted, setIsMuted] = useState(true);
+    const playerRef = useRef<any>(null); // Ref to hold the YouTube player instance
+    const videoId = 'f0YWqtJ0C34';
 
-                <div className="flex flex-wrap gap-4 mb-12">
-                    <Link to="/roadmaps" className="bg-gray-900 dark:bg-primary text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-xl shadow-gray-500/20 dark:shadow-primary/40">
-                        Start Learning
-                    </Link>
-                    <Link to="/projects" className="glassmorphism border border-gray-300 dark:border-gray-700 dark:text-gray-300 text-gray-700 font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10 transition-colors duration-300">
-                        Explore Projects
-                    </Link>
-                </div>
+    useEffect(() => {
+        // This function creates the player instance
+        const createPlayer = () => {
+            playerRef.current = new (window as any).YT.Player('youtube-hero-player', {
+                videoId: videoId,
+                playerVars: {
+                    autoplay: 1,
+                    controls: 0,
+                    loop: 1,
+                    playlist: videoId, // Required for loop to work
+                    mute: 1,
+                    showinfo: 0,
+                    modestbranding: 1,
+                    playsinline: 1,
+                    rel: 0,
+                },
+                events: {
+                    onReady: (event: any) => {
+                        event.target.playVideo();
+                    },
+                },
+            });
+        };
+
+        // If the YouTube IFrame API script is already loaded, create the player
+        if ((window as any).YT && (window as any).YT.Player) {
+            createPlayer();
+        } else {
+            // Load the YouTube IFrame API script
+            const tag = document.createElement('script');
+            tag.src = 'https://www.youtube.com/iframe_api';
+            const firstScriptTag = document.getElementsByTagName('script')[0];
+            if (firstScriptTag && firstScriptTag.parentNode) {
+                firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+            }
             
-                <div className="flex space-x-10 text-center">
-                    <ScrollReveal delay={200}>
-                        <p className="text-3xl font-bold gradient-text">10K+</p>
-                        <p className="text-gray-500 dark:text-gray-400">Students</p>
-                    </ScrollReveal>
-                    <ScrollReveal delay={300}>
-                        <p className="text-3xl font-bold gradient-text">500+</p>
-                        <p className="text-gray-500 dark:text-gray-400">Projects</p>
-                    </ScrollReveal>
-                    <ScrollReveal delay={400}>
-                        <p className="text-3xl font-bold gradient-text">50+</p>
-                        <p className="text-gray-500 dark:text-gray-400">Mentors</p>
-                    </ScrollReveal>
-                </div>
-            </ScrollReveal>
-        </div>
-        
-        <div className="lg:w-1/2 w-full flex justify-center items-center h-full">
-            <ScrollReveal delay={500}>
-                <div className="w-full lg:w-4/5 hero-visual-box relative overflow-hidden flex items-center justify-center p-6">
-                     <video
-                        src="https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        className="absolute top-0 left-0 w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-black/50"></div>
-                    <div className="relative z-10 text-center">
-                         <p className="text-gray-300 dark:text-gray-400 text-xl font-semibold">
-                            [Placeholder: 3D Animated Logo & Data Stream Visualization]
-                        </p>
-                    </div>
-                    <div className="absolute top-8 right-8 w-12 h-12 rounded-full bg-primary/20 dark:bg-gray-800/50 flex items-center justify-center border border-primary/30 dark:border-gray-700 animate-pulse-slow z-10">
-                        <span className="material-icons text-primary dark:text-white">rocket_launch</span>
-                    </div>
-                </div>
-            </ScrollReveal>
-        </div>
-    </section>
-);
+            // The API will call this function when it's ready
+            (window as any).onYouTubeIframeAPIReady = createPlayer;
+        }
 
+        // Cleanup function to avoid memory leaks
+        return () => {
+            if (playerRef.current) {
+                playerRef.current.destroy();
+            }
+        };
+    }, [videoId]);
+
+
+    // Effect to control the mute state of the player when `isMuted` changes
+    useEffect(() => {
+        if (playerRef.current && typeof playerRef.current.mute === 'function') {
+            if (isMuted) {
+                playerRef.current.mute();
+            } else {
+                playerRef.current.unMute();
+            }
+        }
+    }, [isMuted, playerRef.current]);
+
+    const toggleMute = () => {
+        setIsMuted(!isMuted);
+    };
+
+    return (
+        <section className="container mx-auto px-6 py-20 flex flex-col lg:flex-row items-center justify-between min-h-[70vh]">
+            <div className="lg:w-1/2 mb-10 lg:mb-0">
+                <ScrollReveal>
+                    <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-4 text-gray-900 dark:text-gray-100">
+                        Shape Your <span className="gradient-text animate-subtle-pulse">Tech Future</span>
+                    </h1>
+                    <p className="text-lg md:text-xl max-w-lg text-gray-600 dark:text-gray-400 mb-8">
+                        Join the ultimate platform for student developers. Learn, build, earn, and connect with the future of technology.
+                    </p>
+                    <div className="flex flex-wrap gap-4 mb-12">
+                        {/* Links here */}
+                        <Link to="/roadmaps" className="bg-gray-900 dark:bg-primary text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-xl shadow-gray-500/20 dark:shadow-primary/40">
+                            Start Learning
+                        </Link>
+                        <Link to="/projects" className="glassmorphism border border-gray-300 dark:border-gray-700 dark:text-gray-300 text-gray-700 font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10 transition-colors duration-300">
+                            Explore Projects
+                        </Link>
+                    </div>
+                    <div className="flex space-x-10 text-center">
+                        {/* Stats here */}
+                         <ScrollReveal delay={200}>
+                            <p className="text-3xl font-bold gradient-text">10K+</p>
+                            <p className="text-gray-500 dark:text-gray-400">Students</p>
+                        </ScrollReveal>
+                        <ScrollReveal delay={300}>
+                            <p className="text-3xl font-bold gradient-text">500+</p>
+                            <p className="text-gray-500 dark:text-gray-400">Projects</p>
+                        </ScrollReveal>
+                        <ScrollReveal delay={400}>
+                            <p className="text-3xl font-bold gradient-text">50+</p>
+                            <p className="text-gray-500 dark:text-gray-400">Mentors</p>
+                        </ScrollReveal>
+                    </div>
+                </ScrollReveal>
+            </div>
+            
+            <div className="lg:w-1/2 w-full flex justify-center items-center">
+                <ScrollReveal delay={500}>
+                    <div className="w-full lg:w-4/5 hero-visual-box relative overflow-hidden rounded-2xl shadow-2xl shadow-gray-500/20 dark:shadow-primary/20 aspect-video">
+                        {/* The empty div that the YouTube API will replace */}
+                        <div id="youtube-hero-player" className="absolute top-0 left-0 w-full h-full"></div>
+
+                        {/* This overlay is now just for aesthetics */}
+                        <div className="absolute inset-0 bg-black/20 pointer-events-none"></div>
+
+                        <div className="absolute top-8 right-8 w-12 h-12 rounded-full bg-primary/20 dark:bg-gray-800/50 flex items-center justify-center border border-primary/30 dark:border-gray-700 animate-pulse-slow z-10 pointer-events-none">
+                            <span className="material-icons text-primary dark:text-white">rocket_launch</span>
+                        </div>
+
+                        {/* --- MUTE/UNMUTE BUTTON --- */}
+                        <button
+                            onClick={toggleMute}
+                            className="absolute bottom-4 left-4 z-20 glassmorphism p-2 rounded-full text-white hover:bg-white/20 transition-all"
+                            aria-label={isMuted ? 'Unmute video' : 'Mute video'}
+                        >
+                            <span className="material-icons">
+                                {isMuted ? 'volume_off' : 'volume_up'}
+                            </span>
+                        </button>
+                    </div>
+                </ScrollReveal>
+            </div>
+        </section>
+    );
+};
+
+// ... THE REST OF THE CODE REMAINS THE SAME ...
 
 const features = [
     { icon: 'book', title: 'Learning Roadmaps', description: 'Step-by-step career guides for Web Dev, AI, Data Science, and more.', link: '/roadmaps' },

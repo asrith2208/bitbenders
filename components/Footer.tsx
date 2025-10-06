@@ -16,7 +16,10 @@ const Footer: React.FC = () => {
             <div className="container mx-auto px-6 py-12 text-gray-700 dark:text-gray-400">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                     <div>
-                        <h4 className="font-bold text-gray-900 dark:text-white mb-4">Bit Benders</h4>
+                        <div className="flex items-center space-x-2">
+                            <img src="logo.png" alt="Bit Benders Logo" className="h-8 w-8" />
+                            <h4 className="font-bold text-gray-900 dark:text-white">Bit Benders</h4>
+                        </div>
                         <p className="text-sm">Shape Your Tech Future.</p>
                     </div>
                     <div>
@@ -61,7 +64,7 @@ const Footer: React.FC = () => {
                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
                         </SocialIcon>
                     </div>
-                    <p className="text-gray-500 dark:text-gray-500 order-1 sm:order-2">© 2024 Bit Benders. All rights reserved.</p>
+                    <p className="text-gray-500 dark:text-gray-500 order-1 sm:order-2">© 2025 Bit Benders. All rights reserved for badri.</p>
                 </div>
             </div>
         </footer>
