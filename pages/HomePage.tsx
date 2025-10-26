@@ -74,7 +74,7 @@ const HeroSection: React.FC = () => {
     };
 
     return (
-        <section className="container mx-auto px-6 py-20 flex flex-col lg:flex-row items-center justify-between min-h-[70vh]">
+        <section className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20 flex flex-col lg:flex-row items-center justify-between min-h-[70vh]">
             <div className="lg:w-1/2 mb-10 lg:mb-0">
                 <ScrollReveal>
                     <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-4 text-gray-900 dark:text-gray-100">
@@ -110,26 +110,44 @@ const HeroSection: React.FC = () => {
                 </ScrollReveal>
             </div>
             
-            <div className="lg:w-1/2 w-full flex justify-center items-center">
+            <div className="w-full lg:w-1/2 px-4 sm:px-6 lg:px-0">
                 <ScrollReveal delay={500}>
-                    <div className="w-full lg:w-4/5 hero-visual-box relative overflow-hidden rounded-2xl shadow-2xl shadow-gray-500/20 dark:shadow-primary/20 aspect-video">
+                    <div className="relative w-full overflow-hidden rounded-2xl shadow-2xl shadow-gray-500/20 dark:shadow-primary/20" 
+                         style={{
+                             paddingBottom: '56.25%', /* 16:9 Aspect Ratio */
+                             height: 0,
+                             position: 'relative',
+                             maxWidth: '100%',
+                             margin: '0 auto'
+                         }}>
                         {/* The empty div that the YouTube API will replace */}
-                        <div id="youtube-hero-player" className="absolute top-0 left-0 w-full h-full"></div>
+                        <div 
+                            id="youtube-hero-player" 
+                            className="absolute top-0 left-0 w-full h-full"
+                            style={{
+                                position: 'absolute',
+                                top: 0,
+                                left: 0,
+                                width: '100%',
+                                height: '100%',
+                                border: 0
+                            }}
+                        ></div>
 
-                        {/* This overlay is now just for aesthetics */}
+                        {/* Overlay for aesthetics */}
                         <div className="absolute inset-0 bg-black/20 pointer-events-none"></div>
 
-                        <div className="absolute top-8 right-8 w-12 h-12 rounded-full bg-primary/20 dark:bg-gray-800/50 flex items-center justify-center border border-primary/30 dark:border-gray-700 animate-pulse-slow z-10 pointer-events-none">
-                            <span className="material-icons text-primary dark:text-white">rocket_launch</span>
+                        <div className="absolute top-4 right-4 sm:top-8 sm:right-8 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary/20 dark:bg-gray-800/50 flex items-center justify-center border border-primary/30 dark:border-gray-700 animate-pulse-slow z-10 pointer-events-none">
+                            <span className="material-icons text-primary dark:text-white text-lg sm:text-2xl">rocket_launch</span>
                         </div>
 
-                        {/* --- MUTE/UNMUTE BUTTON --- */}
+                        {/* MUTE/UNMUTE BUTTON */}
                         <button
                             onClick={toggleMute}
                             className="absolute bottom-4 left-4 z-20 glassmorphism p-2 rounded-full text-white hover:bg-white/20 transition-all"
                             aria-label={isMuted ? 'Unmute video' : 'Mute video'}
                         >
-                            <span className="material-icons">
+                            <span className="material-icons text-sm sm:text-base">
                                 {isMuted ? 'volume_off' : 'volume_up'}
                             </span>
                         </button>
@@ -288,6 +306,21 @@ const CallToActionSection: React.FC = () => (
 );
 
 const HomePage: React.FC = () => {
+    const [isLoading, setIsLoading] = React.useState(true);
+
+    React.useEffect(() => {
+        // Simulate loading data
+        const timer = setTimeout(() => {
+            setIsLoading(false);
+        }, 1000);
+
+        return () => clearTimeout(timer);
+    }, []);
+
+    if (isLoading) {
+        return <HomePageSkeleton />;
+    }
+
     return (
         <main className="relative z-10">
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-20 dark:block hidden">
@@ -299,6 +332,61 @@ const HomePage: React.FC = () => {
             <RoadmapsPathSection />
             <CommunitySection />
             <CallToActionSection />
+        </main>
+    );
+};
+
+// Skeleton Loading Component
+const HomePageSkeleton: React.FC = () => {
+    return (
+        <main className="relative z-10">
+            {/* Hero Section Skeleton */}
+            <section className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20">
+                <div className="flex flex-col lg:flex-row items-center justify-between min-h-[70vh]">
+                    <div className="lg:w-1/2 mb-10 lg:mb-0 space-y-6">
+                        <div className="h-16 w-3/4 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+                        <div className="h-6 w-full bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+                        <div className="h-6 w-5/6 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+                        <div className="flex space-x-4 pt-4">
+                            <div className="h-12 w-32 bg-gray-200 dark:bg-gray-700 rounded-lg animate-pulse"></div>
+                            <div className="h-12 w-32 bg-gray-200 dark:bg-gray-700 rounded-lg animate-pulse"></div>
+                        </div>
+                        <div className="flex space-x-10 pt-8">
+                            {[1, 2, 3].map((i) => (
+                                <div key={i} className="text-center">
+                                    <div className="h-8 w-16 bg-gray-200 dark:bg-gray-700 rounded animate-pulse mx-auto mb-2"></div>
+                                    <div className="h-4 w-20 bg-gray-200 dark:bg-gray-700 rounded animate-pulse mx-auto"></div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="w-full lg:w-1/2 px-4 sm:px-6 lg:px-0">
+                        <div className="relative w-full overflow-hidden rounded-2xl" style={{ paddingBottom: '56.25%' }}>
+                            <div className="absolute inset-0 bg-gray-200 dark:bg-gray-700 rounded-2xl animate-pulse"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Features Grid Skeleton */}
+            <section className="py-12">
+                <div className="container mx-auto px-6">
+                    <div className="text-center mb-12">
+                        <div className="h-10 w-64 bg-gray-200 dark:bg-gray-700 rounded-full mx-auto mb-4 animate-pulse"></div>
+                        <div className="h-4 w-96 bg-gray-200 dark:bg-gray-700 rounded mx-auto animate-pulse"></div>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {[1, 2, 3, 4, 5, 6].map((item) => (
+                            <div key={item} className="p-6 rounded-xl bg-white dark:bg-gray-800 shadow-md h-48 animate-pulse">
+                                <div className="h-10 w-10 bg-gray-200 dark:bg-gray-700 rounded-lg mb-4"></div>
+                                <div className="h-6 w-3/4 bg-gray-200 dark:bg-gray-700 rounded mb-3"></div>
+                                <div className="h-4 w-full bg-gray-200 dark:bg-gray-700 rounded mb-2"></div>
+                                <div className="h-4 w-5/6 bg-gray-200 dark:bg-gray-700 rounded"></div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
         </main>
     );
 };
