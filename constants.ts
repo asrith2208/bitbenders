@@ -12,7 +12,7 @@ export const ROADMAP_CATEGORIES: RoadmapCategory[] = [
         id: 'core-tech',
         title: 'Core & Emerging Tech Domain',
         domains: [
-            { id: 'ai-ml', name: 'AI/ML' },
+            { id: 'ai-ml/levels', name: 'AI/ML' },
             { id: 'data-science', name: 'Data Science & Analytics' },
             { id: 'cybersecurity', name: 'Cybersecurity' },
             { id: 'iot', name: 'IoT (Internet of Things)' },

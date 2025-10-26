@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useLayoutEffect } from 'react';
 import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
@@ -11,6 +10,12 @@ import ProjectDetailPage from './pages/ProjectDetailPage';
 import PlaceholderPage from './pages/PlaceholderPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsOfServicePage from './pages/TermsOfServicePage';
+import AImlLevelPage from './pages/AImlLevelPage';
+import AImlMediumPage from './pages/AImlMediumPage';
+import AImlAdvancedPage from './pages/AImlAdvancedPage';
+
+// Import BOTH the default component and the named LessonPage component
+import AImlBeginnerPage, { LessonPage } from './pages/AImlBeginnerPage';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -49,12 +54,22 @@ const App: React.FC = () => {
     return (
         <HashRouter>
             <ScrollToTop />
-            <div className={`flex flex-col min-h-screen`}>
+            <div className={`flex flex-col min-h-screen bg-white dark:bg-gray-900`}>
                  <Header theme={theme} toggleTheme={toggleTheme} />
                  <div className="flex-grow pt-20">
                     <Routes>
                         <Route path="/" element={<HomePage />} />
                         <Route path="/roadmaps" element={<RoadmapsPage />} />
+                        <Route path="/roadmaps/ai-ml/levels" element={<AImlLevelPage />} />
+                        <Route path="/roadmaps/ai-ml/beginner" element={<AImlBeginnerPage />} />
+                        <Route path="/roadmaps/ai-ml/medium" element={<AImlMediumPage />} />
+                        <Route path="/roadmaps/ai-ml/advanced" element={<AImlAdvancedPage />} />
+                        
+                        {/* =================================================================== */}
+                        {/* == NEW ROUTE FOR LESSONS - THIS IS THE IMPORTANT ADDITION         == */}
+                        {/* =================================================================== */}
+                        <Route path="/roadmaps/ai-ml/beginner/modules/:moduleId/lessons/:lessonId" element={<LessonPage />} />
+
                         <Route path="/roadmaps/:id" element={<RoadmapDetailPage />} />
                         <Route path="/projects" element={<ProjectsPage />} />
                         <Route path="/projects/:id" element={<ProjectDetailPage />} />
