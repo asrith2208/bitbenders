@@ -11,8 +11,8 @@ const PrivacyPolicyPage: React.FC = () => {
                        <span className="gradient-text">Privacy Policy</span>
                     </h1>
                     <div className="text-left text-gray-700 dark:text-gray-300 space-y-4 leading-relaxed">
-                        <p><strong>Last updated: October 2024</strong></p>
-                        <p>Bit Benders ("us", "we", or "our") operates the Bit Benders website (the "Service").</p>
+                        <p><strong>Last updated: November 2024</strong></p>
+                        <p>SikshaNext ("us", "we", or "our") operates the SikshaNext website (the "Service").</p>
                         <p>This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data. We use your data to provide and improve the Service. By using the Service, you agree to the collection and use of information in accordance with this policy.</p>
                         
                         <h2 className="text-2xl font-bold pt-4 text-gray-900 dark:text-gray-100">Information Collection and Use</h2>

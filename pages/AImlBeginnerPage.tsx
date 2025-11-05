@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom"; // You need to install react-router-dom
+import { Link, useParams } from "react-router-dom";
 import ScrollReveal from "../components/ScrollReveal";
 import { BookOpen, BarChart3, CheckCircle2, Star, FileText, Lock, ArrowLeft } from "lucide-react";
 
@@ -38,7 +38,6 @@ const modules = [
       "Module Test: Mathematics for ML",
     ],
   },
-  // ... all your other modules go here ...
   {
     title: "Scikit-learn Basics",
     desc: "Get started with the most popular ML library for beginners.",
@@ -162,7 +161,7 @@ const AImlBeginnerPage: React.FC = () => {
   return (
     <main className="container mx-auto px-6 py-20">
       <ScrollReveal>
-        <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 gradient-text">
+        <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 text-[#F4B400]">
           Beginner Roadmap — AI/ML Foundations
         </h1>
         <p className="text-lg text-gray-500 dark:text-gray-400 text-center mb-12">
@@ -170,12 +169,12 @@ const AImlBeginnerPage: React.FC = () => {
         </p>
       </ScrollReveal>
 
-      {/* 📊 Stats Section (Improved UI) */}
+      {/* 📊 Stats Section */}
       <div className="grid md:grid-cols-5 sm:grid-cols-2 gap-6 mb-20">
         {stats.map((stat, i) => (
           <ScrollReveal key={i}>
-            <div className="p-6 text-center bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-200 dark:border-gray-700/50 transition-all duration-300">
-              <div className="flex justify-center mb-3 text-primary">{stat.icon}</div>
+            <div className="p-6 text-center bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-200 dark:border-gray-700/50 transition-all duration-300 hover:border-[#F4B400]">
+              <div className="flex justify-center mb-3 text-[#F4B400]">{stat.icon}</div>
               <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100">{stat.title}</h3>
               <p className="text-gray-500 dark:text-gray-400 text-sm">{stat.subtitle}</p>
             </div>
@@ -184,14 +183,14 @@ const AImlBeginnerPage: React.FC = () => {
       </div>
 
       <ScrollReveal>
-        <h2 className="text-3xl font-bold mb-8 text-center gradient-text">Module Structure</h2>
+        <h2 className="text-3xl font-bold mb-8 text-center text-[#F4B400]">Module Structure</h2>
       </ScrollReveal>
 
       {/* 📚 Modules Section */}
       <div className="space-y-6 max-w-4xl mx-auto">
         {modules.map((mod, i) => (
           <ScrollReveal key={i}>
-            <div className="bg-gray-100 dark:bg-gray-800 rounded-xl p-6 md:p-8">
+            <div className="bg-gray-100 dark:bg-gray-800 rounded-xl p-6 md:p-8 border border-transparent hover:border-[#F4B400]/70 transition-all duration-300">
               <div className="flex items-start gap-6 mb-6">
                 <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-white dark:bg-gray-900 rounded-full font-bold text-xl text-gray-400 dark:text-gray-500">
                   {i + 1}
@@ -213,15 +212,19 @@ const AImlBeginnerPage: React.FC = () => {
                       <li className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-200/60 dark:hover:bg-gray-700/50 transition-colors duration-200 cursor-pointer">
                         <div className="flex items-center gap-4">
                           {isPro ? (
-                            <div className="flex items-center justify-center w-6 h-6 rounded-full bg-amber-400/20">
-                              <Lock className="w-4 h-4 text-amber-500" />
+                            <div className="flex items-center justify-center w-6 h-6 rounded-full bg-[#F4B400]/20">
+                              <Lock className="w-4 h-4 text-[#F4B400]" />
                             </div>
                           ) : (
                             <div className="w-6 h-6 bg-gray-300 dark:bg-gray-600 rounded-full"></div>
                           )}
-                          <span className="font-medium text-gray-700 dark:text-blue-400">{cleanTitle}</span>
+                          <span className="font-medium text-gray-700 dark:text-gray-300">
+                            {cleanTitle}
+                          </span>
                           {isPro && (
-                            <span className="text-xs font-bold bg-amber-200 text-amber-800 dark:bg-amber-400/10 dark:text-amber-400 px-2 py-0.5 rounded-md">PRO</span>
+                            <span className="text-xs font-bold bg-[#F4B400]/20 text-[#F4B400] px-2 py-0.5 rounded-md">
+                              PRO
+                            </span>
                           )}
                         </div>
                         <div className="text-xs font-medium bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-300 px-3 py-1 rounded-md">
@@ -240,17 +243,25 @@ const AImlBeginnerPage: React.FC = () => {
       {/* 🎯 Career Section */}
       <ScrollReveal>
         <div className="mt-20 text-center">
-          <h2 className="text-3xl font-bold mb-4 gradient-text">🎯 Career Opportunities</h2>
+          <h2 className="text-3xl font-bold mb-4 text-[#F4B400]">🎯 Career Opportunities</h2>
           <p className="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto mb-8">
             This Beginner Path prepares you for all 15 entry-level AI/ML roles:
           </p>
           <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-6 max-w-3xl mx-auto text-gray-700 dark:text-gray-300">
             {[
-              "Junior Data Scientist", "Data Analyst (ML)", "ML Intern", "AI Trainee",
-              "Junior ML Engineer", "Data Labeling Specialist", "AI Research Assistant",
+              "Junior Data Scientist",
+              "Data Analyst (ML)",
+              "ML Intern",
+              "AI Trainee",
+              "Junior ML Engineer",
+              "Data Labeling Specialist",
+              "AI Research Assistant",
               "AI/ML Engineer",
             ].map((role, i) => (
-              <div key={i} className="px-4 py-2 bg-gray-100 dark:bg-gray-900/40 rounded-xl border border-gray-200 dark:border-gray-800/50">
+              <div
+                key={i}
+                className="px-4 py-2 bg-gray-100 dark:bg-gray-900/40 rounded-xl border border-gray-200 dark:border-gray-800/50 hover:border-[#F4B400] transition-all duration-300"
+              >
                 {role}
               </div>
             ))}
@@ -264,30 +275,27 @@ const AImlBeginnerPage: React.FC = () => {
 export default AImlBeginnerPage;
 
 // ===================================================================
-// == NEW COMPONENT: The placeholder page for individual lessons    ==
+// == NEW COMPONENT: LessonPage placeholder ==
 // ===================================================================
-// You can move this to its own file like `LessonPage.tsx`
 export const LessonPage: React.FC = () => {
-  const { moduleId, lessonId } = useParams(); // Gets the IDs from the URL
+  const { moduleId, lessonId } = useParams();
 
-  // You can fetch the specific lesson content here in the future
-  // For now, it just displays a "Coming Soon" message.
-  const lessonTitle = "Lesson Content"; // Placeholder title
+  const lessonTitle = "Lesson Content";
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 p-6">
       <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4 gradient-text">{lessonTitle}</h1>
+        <h1 className="text-4xl font-bold mb-4 text-[#F4B400]">{lessonTitle}</h1>
         <p className="text-xl text-gray-600 dark:text-gray-400 mb-8">
           Module: {Number(moduleId) + 1}, Lesson: {Number(lessonId) + 1}
         </p>
-        <div className="bg-yellow-100 dark:bg-yellow-900/30 border-l-4 border-yellow-500 text-yellow-800 dark:text-yellow-300 p-4 rounded-md">
+        <div className="bg-yellow-100 dark:bg-yellow-900/30 border-l-4 border-[#F4B400] text-yellow-800 dark:text-yellow-300 p-4 rounded-md">
           <p className="font-bold">Coming Soon!</p>
           <p>This lesson is currently under construction. Please check back later.</p>
         </div>
         <Link
           to="/"
-          className="mt-8 inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-semibold rounded-lg shadow-md hover:bg-primary/90 transition-colors"
+          className="mt-8 inline-flex items-center gap-2 px-6 py-3 bg-[#F4B400] text-black font-semibold rounded-lg shadow-md hover:scale-105 transition-transform"
         >
           <ArrowLeft size={18} />
           Back to Roadmap
