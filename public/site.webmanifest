@@ -1,0 +1,65 @@
+{
+  "name": "SikshaNext - Shape Your Tech Future",
+  "short_name": "SikshaNext",
+  "description": "Empowering the future of tech education with comprehensive roadmaps, projects, and community support.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FFFFFF",
+  "theme_color": "#FFC107",
+  "categories": ["education", "technology", "programming"],
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot1.png",
+      "sizes": "1280x800",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/screenshot2.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ],
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "Start Learning",
+      "short_name": "Learn",
+      "description": "Start your learning journey",
+      "url": "/roadmaps"
+    },
+    {
+      "name": "Explore Projects",
+      "short_name": "Projects",
+      "description": "Browse project ideas",
+      "url": "/projects"
+    },
+    {
+      "name": "Join Community",
+      "short_name": "Community",
+      "description": "Connect with other learners",
+      "url": "/community"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "webapp",
+      "url": "https://sikshanext.com"
+    }
+  ]
+}

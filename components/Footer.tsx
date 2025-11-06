@@ -6,7 +6,7 @@ const SocialIcon: React.FC<{ href: string; children: React.ReactNode }> = ({ hre
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    className="text-gray-500 dark:text-gray-400 hover:text-[#F4B400] transition-all duration-300 transform hover:scale-110"
+    className="text-gray-500 dark:text-gray-400 hover:text-[#FFC107] transition-all duration-300 transform hover:scale-110"
   >
     <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
       {children}
@@ -16,32 +16,48 @@ const SocialIcon: React.FC<{ href: string; children: React.ReactNode }> = ({ hre
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-gray-50 dark:bg-gray-950/80 border-t border-gray-200 dark:border-gray-800">
-      <div className="container mx-auto px-6 py-12 text-gray-700 dark:text-gray-400">
+    <footer
+      className="
+        border-t border-gray-200 dark:border-gray-800 
+        bg-gray-50 
+        dark:bg-gradient-to-r dark:from-[#2A2A2A] dark:via-[#333333] dark:to-[#3D3D3D]
+      "
+    >
+      <div className="container mx-auto px-6 py-12 text-gray-700 dark:text-gray-300">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          {/* Logo + Tagline */}
           <div>
-            <div className="flex items-center space-x-2 mb-2">
-              <img src="/logo.png" alt="SikshaNext Logo" className="h-8 w-8" />
-              <h4 className="font-bold text-gray-900 dark:text-white text-lg">SikshaNext</h4>
+            <div className="flex items-center space-x-2 mb-3">
+              <img src="/logo.png" alt="SikshaNext Logo" className="h-9 w-9 object-contain" />
+              <h4
+                className="text-2xl uppercase font-['Faculty_Glyphic'] tracking-wide
+                           text-gray-900 dark:text-gray-100"
+              >
+                SIKSHA<span className="text-[#FFC107]">NEXT</span>
+              </h4>
             </div>
             <p className="text-sm opacity-80 leading-relaxed">
               Empowering the Future of Education.
             </p>
           </div>
 
+          {/* Footer Link Sections */}
           {[
             { title: 'Explore', links: ['Roadmaps', 'Projects', 'Community'] },
             { title: 'About', links: ['About Us', 'Services'] },
             { title: 'Legal', links: ['Privacy Policy', 'Terms of Service'] },
           ].map((section, i) => (
             <div key={i}>
-              <h4 className="font-semibold text-gray-900 dark:text-white mb-4">{section.title}</h4>
+              <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-4">{section.title}</h4>
               <ul className="space-y-2 text-sm">
                 {section.links.map((link) => (
                   <li key={link}>
                     <Link
                       to={`/${link.toLowerCase().replace(/\s+/g, '')}`}
-                      className="relative inline-block hover:text-[#F4B400] transition-all duration-300 after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-[#F4B400] after:left-0 after:-bottom-[2px] after:transition-all after:duration-300 hover:after:w-full"
+                      className="relative inline-block hover:text-[#FFC107] transition-all duration-300 
+                                 after:content-[''] after:absolute after:w-0 after:h-[2px] 
+                                 after:bg-[#FFC107] after:left-0 after:-bottom-[2px] 
+                                 after:transition-all after:duration-300 hover:after:w-full"
                     >
                       {link}
                     </Link>
@@ -52,7 +68,9 @@ const Footer: React.FC = () => {
           ))}
         </div>
 
+        {/* Bottom Section */}
         <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700 flex flex-col sm:flex-row justify-between items-center">
+          {/* Social Icons */}
           <div className="flex space-x-6 order-2 sm:order-1 mt-4 sm:mt-0">
             <SocialIcon href="https://www.linkedin.com/company/sikshanextpvtltd/">
               <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
@@ -67,8 +85,14 @@ const Footer: React.FC = () => {
               <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
             </SocialIcon>
           </div>
-          <p className="text-sm text-gray-500 dark:text-gray-500 order-1 sm:order-2">
-            © 2025 SikshaNext Pvt Ltd. All rights reserved.
+
+          {/* Copyright */}
+          <p className="text-sm text-gray-600 dark:text-gray-400 order-1 sm:order-2 text-center sm:text-right">
+            © 2025{' '}
+            <span className="uppercase font-['Faculty_Glyphic'] tracking-wide text-gray-900 dark:text-gray-100">
+              SIKSHA<span className="text-[#FFC107]">NEXT</span>
+            </span>{' '}
+            Pvt Ltd. All rights reserved.
           </p>
         </div>
       </div>

@@ -9,7 +9,7 @@ interface HeaderProps {
 const NavLinks: React.FC<{ onLinkClick?: () => void }> = ({ onLinkClick }) => {
   const linkClasses = ({ isActive }: { isActive: boolean }) =>
     `relative block px-3 py-2 text-base font-medium transition-all duration-300 
-     text-gray-800 dark:text-gray-200 
+     text-gray-800 dark:text-gray-100 
      hover:text-[#FFC107] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 
      after:bg-[#FFC107] after:transition-all after:duration-300 hover:after:w-full
      ${isActive ? 'text-[#FFC107] after:w-full' : ''}`;
@@ -35,11 +35,29 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm shadow-md">
+      <header
+        className="
+          fixed top-0 left-0 right-0 z-50 
+          bg-white/95 
+          dark:bg-gradient-to-r dark:from-[#2A2A2A] dark:via-[#333333] dark:to-[#3D3D3D]
+          backdrop-blur-sm shadow-md
+        "
+      >
         <nav className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <Link to="/" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-2">
-            <img className="h-8 w-8" src="/logo.png" alt="Logo" />
-            <span className="text-xl font-bold text-gray-900 dark:text-gray-100">Sikshanext</span>
+          
+          {/* LOGO SECTION */}
+          <Link to="/" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-3">
+            <img 
+              className="h-10 w-auto object-contain transition-transform duration-300 hover:scale-105"
+              src="/logo.png" 
+              alt="SikshaNext Logo"
+            />
+            <span 
+              className="text-2xl uppercase font-['Faculty_Glyphic'] tracking-wide 
+                         text-gray-900 dark:text-gray-100"
+            >
+              SIKSHA<span className="text-[#FFC107]">NEXT</span>
+            </span>
           </Link>
 
           {/* Desktop Menu */}
@@ -49,19 +67,17 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
 
           {/* Actions */}
           <div className="flex items-center gap-3">
-            <Link
-              to="/login"
-              className="hidden md:block text-gray-600 dark:text-gray-300 hover:text-[#FFC107] transition-colors duration-300"
-            >
-              Sign In
-            </Link>
-
             <button
+              onClick={() => {
+                // Handle sign in functionality here
+                window.location.href = '/login';
+              }}
               className="hidden md:block bg-[#FFC107] hover:bg-[#ffb300] text-white font-semibold px-5 py-2 rounded-md transition-all duration-300 shadow-sm hover:shadow-md"
             >
               Get Started
             </button>
 
+            {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
               className="p-2 rounded-full text-gray-700 dark:text-gray-300 hover:text-[#FFC107] transition-colors"
@@ -72,7 +88,7 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
               </span>
             </button>
 
-            {/* Hamburger Button */}
+            {/* Hamburger */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="md:hidden p-2 rounded-full text-gray-700 dark:text-gray-300 hover:text-[#FFC107] transition-colors"
@@ -86,20 +102,15 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-white dark:bg-gray-900 flex flex-col items-center justify-center space-y-8 transition-all duration-300">
+        <div className="fixed inset-0 z-40 bg-white dark:bg-[#2B2B2B] flex flex-col items-center justify-center space-y-8 transition-all duration-300">
           <NavLinks onLinkClick={() => setIsMenuOpen(false)} />
-
           <div className="flex flex-col items-center space-y-5">
-            <Link
-              to="/login"
-              onClick={() => setIsMenuOpen(false)}
-              className="text-lg text-gray-700 dark:text-gray-200 hover:text-[#FFC107] transition-colors duration-300"
-            >
-              Sign In
-            </Link>
             <button
-              onClick={() => setIsMenuOpen(false)}
-              className="bg-[#FFC107] hover:bg-[#ffb300] text-white font-semibold px-8 py-3 rounded-md shadow-sm transition-all duration-300 hover:shadow-md"
+              onClick={() => {
+                setIsMenuOpen(false);
+                window.location.href = '/login';
+              }}
+              className="w-full bg-[#FFC107] hover:bg-[#ffb300] text-white font-semibold px-8 py-3 rounded-md shadow-sm transition-all duration-300 hover:shadow-md"
             >
               Get Started
             </button>

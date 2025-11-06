@@ -4,45 +4,49 @@ import { FEATURED_ROADMAPS } from '../constants';
 
 const HeroSection: React.FC = () => {
   return (
-    <section className="container mx-auto px-6 py-16 flex flex-col lg:flex-row items-center justify-between min-h-[70vh]">
+    <section
+      className="
+        container mx-auto px-6 py-16 flex flex-col lg:flex-row items-center justify-between min-h-[70vh]
+        bg-white dark:bg-gradient-to-r dark:from-[#2A2A2A] dark:via-[#333333] dark:to-[#3D3D3D]
+        transition-colors duration-500
+      "
+    >
       <div className="lg:w-1/2 mb-10 lg:mb-0">
         <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-gray-900 dark:text-gray-100">
-          Shape Your <span className="text-amber-500">Tech Future</span>
+          Shape Your <span className="text-[#FFC107]">Tech Future</span>
         </h1>
-        <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-md">
+        <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-md">
           Join the platform built for student developers — learn, build, and grow with community support.
         </p>
         <div className="flex flex-wrap gap-4 mb-8">
           <Link
             to="/roadmaps"
-            className="bg-amber-500 text-white font-semibold px-6 py-3 rounded-md hover:bg-amber-600 transition"
+            className="bg-[#FFC107] text-white font-semibold px-6 py-3 rounded-md hover:bg-[#ffb300] transition-all duration-300 shadow-sm hover:shadow-md"
           >
             Start Learning
           </Link>
           <Link
             to="/projects"
-            className="border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 px-6 py-3 rounded-md hover:border-amber-500 hover:text-amber-500 transition"
+            className="border border-gray-300 dark:border-gray-600 text-gray-800 dark:text-gray-200 px-6 py-3 rounded-md hover:border-[#FFC107] hover:text-[#FFC107] transition-all duration-300"
           >
             Explore Projects
           </Link>
         </div>
         <div className="flex space-x-8">
-          <div className="text-center">
-            <p className="text-2xl font-bold text-amber-500">10K+</p>
-            <p className="text-gray-500 dark:text-gray-400 text-sm">Students</p>
-          </div>
-          <div className="text-center">
-            <p className="text-2xl font-bold text-amber-500">500+</p>
-            <p className="text-gray-500 dark:text-gray-400 text-sm">Projects</p>
-          </div>
-          <div className="text-center">
-            <p className="text-2xl font-bold text-amber-500">50+</p>
-            <p className="text-gray-500 dark:text-gray-400 text-sm">Mentors</p>
-          </div>
+          {[
+            { label: 'Students', value: '10K+' },
+            { label: 'Projects', value: '500+' },
+            { label: 'Mentors', value: '50+' },
+          ].map((item) => (
+            <div key={item.label} className="text-center">
+              <p className="text-2xl font-bold text-[#FFC107]">{item.value}</p>
+              <p className="text-gray-500 dark:text-gray-400 text-sm">{item.label}</p>
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* ✅ Embedded YouTube video */}
+      {/* Video */}
       <div className="w-full lg:w-1/2 flex justify-center">
         <div className="rounded-xl overflow-hidden shadow-lg w-full max-w-lg bg-gray-100 dark:bg-gray-800 aspect-video">
           <iframe
@@ -68,7 +72,7 @@ const features = [
 ];
 
 const FeaturesGridSection: React.FC = () => (
-  <section className="py-16" id="services">
+  <section className="py-16 bg-white dark:bg-[#2E2E2E] transition-colors duration-500" id="services">
     <div className="container mx-auto px-6">
       <div className="text-center mb-12">
         <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Everything You Need</h2>
@@ -79,10 +83,10 @@ const FeaturesGridSection: React.FC = () => (
           <Link
             key={feature.title}
             to={feature.link}
-            className="block border border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:border-amber-500 transition"
+            className="block border border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:border-[#FFC107] transition"
           >
             <div className="flex items-center mb-3">
-              <span className="material-icons text-amber-500 mr-3">{feature.icon}</span>
+              <span className="material-icons text-[#FFC107] mr-3">{feature.icon}</span>
               <h3 className="font-semibold text-gray-900 dark:text-gray-100">{feature.title}</h3>
             </div>
             <p className="text-sm text-gray-600 dark:text-gray-400">{feature.description}</p>
@@ -94,7 +98,7 @@ const FeaturesGridSection: React.FC = () => (
 );
 
 const RoadmapsPathSection: React.FC = () => (
-  <section className="py-16" id="roadmaps">
+  <section className="py-16 bg-white dark:bg-gradient-to-r dark:from-[#2A2A2A] dark:via-[#333333] dark:to-[#3D3D3D] transition-colors duration-500" id="roadmaps">
     <div className="container mx-auto px-6">
       <div className="text-center mb-12">
         <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Choose Your Path</h2>
@@ -105,10 +109,10 @@ const RoadmapsPathSection: React.FC = () => (
           <Link
             key={roadmap.id}
             to={`/roadmaps/${roadmap.id}`}
-            className="border border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:border-amber-500 transition block"
+            className="border border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:border-[#FFC107] transition"
           >
             <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-amber-100 dark:bg-amber-900/30 mb-4">
-              <span className="material-icons text-amber-600">{roadmap.icon}</span>
+              <span className="material-icons text-[#FFC107]">{roadmap.icon}</span>
             </div>
             <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-1">{roadmap.title}</h3>
             <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">{roadmap.description}</p>
@@ -119,7 +123,7 @@ const RoadmapsPathSection: React.FC = () => (
         ))}
       </div>
       <div className="text-center mt-10">
-        <Link to="/roadmaps" className="text-amber-600 font-semibold hover:underline">
+        <Link to="/roadmaps" className="text-[#FFC107] font-semibold hover:underline">
           View All 15+ Roadmaps →
         </Link>
       </div>
@@ -128,7 +132,7 @@ const RoadmapsPathSection: React.FC = () => (
 );
 
 const CommunitySection: React.FC = () => (
-  <section className="py-16" id="community">
+  <section className="py-16 bg-white dark:bg-[#2E2E2E] transition-colors duration-500" id="community">
     <div className="container mx-auto px-6 text-center">
       <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6">Join the Community</h2>
       <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-10 text-sm">
@@ -142,9 +146,9 @@ const CommunitySection: React.FC = () => (
         ].map((item) => (
           <div
             key={item.title}
-            className="border border-gray-200 dark:border-gray-700 rounded-lg p-6 max-w-sm hover:border-amber-500 transition"
+            className="border border-gray-200 dark:border-gray-700 rounded-lg p-6 max-w-sm hover:border-[#FFC107] transition"
           >
-            <span className="material-icons text-amber-500 mb-2">{item.icon}</span>
+            <span className="material-icons text-[#FFC107] mb-2">{item.icon}</span>
             <h4 className="font-semibold text-gray-900 dark:text-gray-100">{item.title}</h4>
             <p className="text-sm text-gray-600 dark:text-gray-400">{item.desc}</p>
           </div>
@@ -155,13 +159,13 @@ const CommunitySection: React.FC = () => (
 );
 
 const CallToActionSection: React.FC = () => (
-  <section className="py-16 bg-gray-900 dark:bg-black text-center text-white">
+  <section className="py-16 bg-gray-900 dark:bg-black text-center text-white transition-colors duration-500">
     <h2 className="text-3xl font-bold mb-4">Ready to Start?</h2>
     <p className="text-gray-400 mb-6 text-sm">Join thousands of students building their tech careers.</p>
     <div className="flex justify-center flex-wrap gap-4">
       <Link
         to="/roadmaps"
-        className="bg-amber-500 text-white font-semibold px-8 py-3 rounded-md hover:bg-amber-600 transition"
+        className="bg-[#FFC107] text-white font-semibold px-8 py-3 rounded-md hover:bg-[#ffb300] transition"
       >
         Start Learning
       </Link>
@@ -177,7 +181,7 @@ const CallToActionSection: React.FC = () => (
 
 const HomePage: React.FC = () => {
   return (
-    <main>
+    <main className="bg-white dark:bg-gradient-to-r dark:from-[#2A2A2A] dark:via-[#333333] dark:to-[#3D3D3D] transition-colors duration-500">
       <HeroSection />
       <FeaturesGridSection />
       <RoadmapsPathSection />
