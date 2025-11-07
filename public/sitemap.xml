@@ -5,7 +5,7 @@
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <!-- Home and Main Pages -->
   <url>
-    <loc>https://sikshanext.com/</loc>
+    <loc>https://sikshanext.in/</loc>
     <lastmod>2025-11-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -13,7 +13,7 @@
   
   <!-- Roadmaps Section -->
   <url>
-    <loc>https://sikshanext.com/roadmaps</loc>
+    <loc>https://sikshanext.in/roadmaps</loc>
     <lastmod>2025-11-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -21,21 +21,21 @@
   
   <!-- AI/ML Learning Paths -->
   <url>
-    <loc>https://sikshanext.com/ai-ml/beginner</loc>
+    <loc>https://sikshanext.in/ai-ml/beginner</loc>
     <lastmod>2025-11-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://sikshanext.com/ai-ml/intermediate</loc>
+    <loc>https://sikshanext.in/ai-ml/intermediate</loc>
     <lastmod>2025-11-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://sikshanext.com/ai-ml/advanced</loc>
+    <loc>https://sikshanext.in/ai-ml/advanced</loc>
     <lastmod>2025-11-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -43,7 +43,7 @@
   
   <!-- Projects Section -->
   <url>
-    <loc>https://sikshanext.com/projects</loc>
+    <loc>https://sikshanext.in/projects</loc>
     <lastmod>2025-11-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -51,7 +51,7 @@
   
   <!-- Project Detail Pages (example pattern) -->
   <url>
-    <loc>https://sikshanext.com/projects/1</loc>
+    <loc>https://sikshanext.in/projects/1</loc>
     <lastmod>2025-11-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -59,7 +59,7 @@
   
   <!-- Roadmap Detail Pages (example pattern) -->
   <url>
-    <loc>https://sikshanext.com/roadmaps/1</loc>
+    <loc>https://sikshanext.in/roadmaps/1</loc>
     <lastmod>2025-11-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -67,14 +67,14 @@
   
   <!-- Legal Pages -->
   <url>
-    <loc>https://sikshanext.com/terms</loc>
+    <loc>https://sikshanext.in/terms</loc>
     <lastmod>2025-11-07</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   
   <url>
-    <loc>https://sikshanext.com/privacy</loc>
+    <loc>https://sikshanext.in/privacy</loc>
     <lastmod>2025-11-07</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
