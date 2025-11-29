@@ -13,7 +13,7 @@ export const ROADMAP_CATEGORIES: RoadmapCategory[] = [
         title: 'Core & Emerging Tech',
         emoji: '🚀',
         domains: [
-            { id: 'ai-ml/levels', name: 'AI/ML', description: 'Master Artificial Intelligence & Machine Learning.', emoji: '🤖' },
+            { id: 'ai-ml', name: 'AI/ML', description: 'Master Artificial Intelligence & Machine Learning.', emoji: '🤖' },
             { id: 'data-science', name: 'Data Science', description: 'Unlock insights from data with Python & R.', emoji: '📊' },
             { id: 'cybersecurity', name: 'Cybersecurity', description: 'Protect systems and networks from attacks.', emoji: '🔒' },
             { id: 'iot', name: 'IoT', description: 'Connect the physical world to the internet.', emoji: '🌐' },
