@@ -9,10 +9,10 @@ interface HeaderProps {
 const NavLinks: React.FC<{ onLinkClick?: () => void }> = ({ onLinkClick }) => {
   const linkClasses = ({ isActive }: { isActive: boolean }) =>
     `relative block px-3 py-2 text-base font-medium transition-all duration-300 
-     text-gray-800 dark:text-gray-100 
-     hover:text-[#FFC107] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 
-     after:bg-[#FFC107] after:transition-all after:duration-300 hover:after:w-full
-     ${isActive ? 'text-[#FFC107] after:w-full' : ''}`;
+     text-gray-800 dark:text-[#F5F7FA] 
+     hover:text-[#1ABC9C] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 
+     after:bg-[#1ABC9C] after:transition-all after:duration-300 hover:after:w-full
+     ${isActive ? 'text-[#1ABC9C] after:w-full' : ''}`;
 
   return (
     <>
@@ -39,7 +39,7 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
         className="
           fixed top-0 left-0 right-0 z-50 
           bg-white/95 
-          dark:bg-gradient-to-r dark:from-[#2A2A2A] dark:via-[#333333] dark:to-[#3D3D3D]
+          dark:bg-gradient-to-r dark:from-[#1A1E26] dark:to-[#242B38]
           backdrop-blur-sm shadow-md
         "
       >
@@ -56,7 +56,7 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
               className="text-2xl uppercase font-['Faculty_Glyphic'] tracking-wide 
                          text-gray-900 dark:text-gray-100"
             >
-              SIKSHA<span className="text-[#FFC107]">NEXT</span>
+              SIKSHA<span className="text-[#16A085] dark:text-[#1ABC9C]">NEXT</span>
             </span>
           </Link>
 
@@ -72,7 +72,7 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
                 // Handle sign in functionality here
                 window.location.href = '/login';
               }}
-              className="hidden md:block bg-[#FFC107] hover:bg-[#ffb300] text-white font-semibold px-5 py-2 rounded-md transition-all duration-300 shadow-sm hover:shadow-md"
+              className="hidden md:block bg-[#16A085] hover:bg-[#1ABC9C] text-white font-semibold px-5 py-2 rounded-md transition-all duration-300 shadow-md hover:shadow-lg"
             >
               Get Started
             </button>
@@ -80,7 +80,7 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-full text-gray-700 dark:text-gray-300 hover:text-[#FFC107] transition-colors"
+              className="p-2 rounded-full text-gray-700 dark:text-[#A0AEC0] hover:text-[#1ABC9C] transition-colors"
               aria-label="Toggle theme"
             >
               <span className="material-icons !text-2xl">

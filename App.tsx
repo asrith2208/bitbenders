@@ -10,9 +10,9 @@ import ProjectDetailPage from './pages/ProjectDetailPage';
 import PlaceholderPage from './pages/PlaceholderPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsOfServicePage from './pages/TermsOfServicePage';
-import AImlLevelPage from './pages/AImlLevelPage';
 import AImlMediumPage from './pages/AImlMediumPage';
 import AImlAdvancedPage from './pages/AImlAdvancedPage';
+import AImlExpertPage from './pages/AImlExpertPage';
 
 // Import BOTH the default component and the named LessonPage component
 import AImlBeginnerPage, { LessonPage } from './pages/AImlBeginnerPage';
@@ -60,10 +60,10 @@ const App: React.FC = () => {
                     <Routes>
                         <Route path="/" element={<HomePage />} />
                         <Route path="/roadmaps" element={<RoadmapsPage />} />
-                        <Route path="/roadmaps/ai-ml/levels" element={<AImlLevelPage />} />
                         <Route path="/roadmaps/ai-ml/beginner" element={<AImlBeginnerPage />} />
                         <Route path="/roadmaps/ai-ml/medium" element={<AImlMediumPage />} />
                         <Route path="/roadmaps/ai-ml/advanced" element={<AImlAdvancedPage />} />
+                        <Route path="/roadmaps/ai-ml/expert" element={<AImlExpertPage />} />
                         
                         {/* =================================================================== */}
                         {/* == NEW ROUTE FOR LESSONS - THIS IS THE IMPORTANT ADDITION         == */}

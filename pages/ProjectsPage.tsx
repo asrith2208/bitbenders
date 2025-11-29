@@ -25,7 +25,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => (
         </div>
       </div>
       <div className="p-6">
-        <div className="flex justify-between text-xs font-semibold uppercase text-[#F4B400] mb-2">
+        <div className="flex justify-between text-xs font-semibold uppercase text-[#16A085] dark:text-[#1ABC9C] mb-2">
           <span>{project.domain}</span>
           <span>{project.language}</span>
         </div>
@@ -52,8 +52,8 @@ const FilterButton: React.FC<{
     onClick={onClick}
     className={`px-4 py-2 text-sm font-semibold rounded-full transition-all duration-300 ${
       isActive
-        ? 'bg-[#F4B400] text-black shadow-md shadow-[#F4B400]/30'
-        : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-[#F4B400]/10 hover:text-[#F4B400]'
+        ? 'bg-[#16A085] dark:bg-[#1ABC9C] text-white shadow-md shadow-[#16A085]/30 dark:shadow-[#1ABC9C]/30'
+        : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-[#16A085]/10 hover:text-[#16A085] dark:hover:bg-[#1ABC9C]/10 dark:hover:text-[#1ABC9C]'
     }`}
   >
     {label}

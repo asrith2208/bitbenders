@@ -6,7 +6,7 @@ const SocialIcon: React.FC<{ href: string; children: React.ReactNode }> = ({ hre
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    className="text-gray-500 dark:text-gray-400 hover:text-[#FFC107] transition-all duration-300 transform hover:scale-110"
+    className="text-gray-500 dark:text-[#A0AEC0] hover:text-[#1ABC9C] transition-all duration-300 transform hover:scale-110"
   >
     <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
       {children}
@@ -18,25 +18,25 @@ const Footer: React.FC = () => {
   return (
     <footer
       className="
-        border-t border-gray-200 dark:border-gray-800 
+        border-t border-gray-200 dark:border-[#2D3748] 
         bg-gray-50 
-        dark:bg-gradient-to-r dark:from-[#2A2A2A] dark:via-[#333333] dark:to-[#3D3D3D]
+        dark:bg-gradient-to-r dark:from-[#1A1E26] dark:to-[#242B38]
       "
     >
-      <div className="container mx-auto px-6 py-12 text-gray-700 dark:text-gray-300">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div className="container mx-auto px-6 py-12 text-gray-700 dark:text-[#E2E8F0]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           {/* Logo + Tagline */}
-          <div>
+          <div className="sm:col-span-2 md:col-span-1">
             <div className="flex items-center space-x-2 mb-3">
               <img src="/logo.png" alt="SikshaNext Logo" className="h-9 w-9 object-contain" />
               <h4
                 className="text-2xl uppercase font-['Faculty_Glyphic'] tracking-wide
                            text-gray-900 dark:text-gray-100"
               >
-                SIKSHA<span className="text-[#FFC107]">NEXT</span>
+                SIKSHA<span className="text-[#16A085] dark:text-[#1ABC9C]">NEXT</span>
               </h4>
             </div>
-            <p className="text-sm opacity-80 leading-relaxed">
+            <p className="text-sm text-gray-600 dark:text-[#A0AEC0] leading-relaxed">
               Empowering the Future of Education.
             </p>
           </div>
@@ -48,15 +48,15 @@ const Footer: React.FC = () => {
             { title: 'Legal', links: ['Privacy Policy', 'Terms of Service'] },
           ].map((section, i) => (
             <div key={i}>
-              <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-4">{section.title}</h4>
+              <h4 className="font-semibold text-gray-900 dark:text-[#F5F7FA] mb-4">{section.title}</h4>
               <ul className="space-y-2 text-sm">
                 {section.links.map((link) => (
                   <li key={link}>
                     <Link
                       to={`/${link.toLowerCase().replace(/\s+/g, '')}`}
-                      className="relative inline-block hover:text-[#FFC107] transition-all duration-300 
+                      className="relative inline-block hover:text-[#1ABC9C] transition-all duration-300 
                                  after:content-[''] after:absolute after:w-0 after:h-[2px] 
-                                 after:bg-[#FFC107] after:left-0 after:-bottom-[2px] 
+                                 after:bg-[#1ABC9C] after:left-0 after:-bottom-[2px] 
                                  after:transition-all after:duration-300 hover:after:w-full"
                     >
                       {link}
@@ -69,7 +69,7 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700 flex flex-col sm:flex-row justify-between items-center">
+        <div className="mt-12 pt-8 border-t border-gray-200 dark:border-[#2D3748] flex flex-col sm:flex-row justify-between items-center">
           {/* Social Icons */}
           <div className="flex space-x-6 order-2 sm:order-1 mt-4 sm:mt-0">
             <SocialIcon href="https://www.linkedin.com/company/sikshanextpvtltd/">
@@ -89,8 +89,8 @@ const Footer: React.FC = () => {
           {/* Copyright */}
           <p className="text-sm text-gray-600 dark:text-gray-400 order-1 sm:order-2 text-center sm:text-right">
             © 2025{' '}
-            <span className="uppercase font-['Faculty_Glyphic'] tracking-wide text-gray-900 dark:text-gray-100">
-              SIKSHA<span className="text-[#FFC107]">NEXT</span>
+            <span className="uppercase font-['Faculty_Glyphic'] tracking-wide text-gray-900 dark:text-[#F5F7FA]">
+              SIKSHA<span className="text-[#1ABC9C]">NEXT</span>
             </span>{' '}
             Pvt Ltd. All rights reserved.
           </p>
