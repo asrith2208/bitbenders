@@ -10,36 +10,39 @@ export const FEATURED_ROADMAPS: Roadmap[] = [
 export const ROADMAP_CATEGORIES: RoadmapCategory[] = [
     {
         id: 'core-tech',
-        title: 'Core & Emerging Tech Domain',
+        title: 'Core & Emerging Tech',
+        emoji: '🚀',
         domains: [
-            { id: 'ai-ml/levels', name: 'AI/ML' },
-            { id: 'data-science', name: 'Data Science & Analytics' },
-            { id: 'cybersecurity', name: 'Cybersecurity' },
-            { id: 'iot', name: 'IoT (Internet of Things)' },
-            { id: 'cloud-computing', name: 'Cloud Computing' },
-            { id: 'blockchain', name: 'Blockchain' },
-            { id: 'ar-vr', name: 'AR/VR' },
-            { id: 'quantum', name: 'Quantum Computing' }
+            { id: 'ai-ml/levels', name: 'AI/ML', description: 'Master Artificial Intelligence & Machine Learning.', emoji: '🤖' },
+            { id: 'data-science', name: 'Data Science', description: 'Unlock insights from data with Python & R.', emoji: '📊' },
+            { id: 'cybersecurity', name: 'Cybersecurity', description: 'Protect systems and networks from attacks.', emoji: '🔒' },
+            { id: 'iot', name: 'IoT', description: 'Connect the physical world to the internet.', emoji: '🌐' },
+            { id: 'cloud-computing', name: 'Cloud Computing', description: 'Architect scalable solutions on AWS/Azure.', emoji: '☁️' },
+            { id: 'blockchain', name: 'Blockchain', description: 'Build decentralized applications (DApps).', emoji: '🔗' },
+            { id: 'ar-vr', name: 'AR/VR', description: 'Create immersive augmented & virtual realities.', emoji: '👓' },
+            { id: 'quantum', name: 'Quantum Computing', description: 'Explore the future of computing power.', emoji: '⚛️' }
         ]
     },
     {
         id: 'software-systems',
-        title: 'Software & Systems Domains',
+        title: 'Software & Systems',
+        emoji: '💻',
         domains: [
-            { id: 'full-stack', name: 'Full Stack Development' },
-            { id: 'devops', name: 'DevOps' },
-            { id: 'mobile-app', name: 'Mobile App Development' },
-            { id: 'os-systems', name: 'Operating Systems & Systems Programming' },
-            { id: 'embedded', name: 'Embedded Systems' }
+            { id: 'full-stack', name: 'Full Stack Dev', description: 'Build complete web applications from scratch.', emoji: '🛠️' },
+            { id: 'devops', name: 'DevOps', description: 'Streamline development and operations.', emoji: '♾️' },
+            { id: 'mobile-app', name: 'Mobile App Dev', description: 'Create apps for iOS and Android devices.', emoji: '📱' },
+            { id: 'os-systems', name: 'OS & Systems', description: 'Dive deep into operating system internals.', emoji: '🖥️' },
+            { id: 'embedded', name: 'Embedded Systems', description: 'Program hardware and microcontrollers.', emoji: '🔌' }
         ]
     },
     {
         id: 'theory-algorithms',
         title: 'Theory & Algorithms',
+        emoji: '📐',
         domains: [
-            { id: 'dsa', name: 'Algorithms & Data Structures' },
-            { id: 'comp-theory', name: 'Computational Theory' },
-            { id: 'parallel-computing', name: 'Parallel & Distributed Computing' }
+            { id: 'dsa', name: 'DSA', description: 'Master Data Structures and Algorithms.', emoji: '📚' },
+            { id: 'comp-theory', name: 'Comp. Theory', description: 'Understand the mathematical foundations.', emoji: '🧮' },
+            { id: 'parallel-computing', name: 'Parallel Comp.', description: 'Optimize performance with concurrent processing.', emoji: '⚡' }
         ]
     }
 ];

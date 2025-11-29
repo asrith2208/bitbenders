@@ -21,5 +21,11 @@ export interface Roadmap {
 export interface RoadmapCategory {
     id: string;
     title: string;
-    domains: { id: string; name: string }[];
+    emoji: string;
+    domains: {
+        id: string;
+        name: string;
+        description: string;
+        emoji: string;
+    }[];
 }

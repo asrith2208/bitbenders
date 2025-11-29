@@ -13,6 +13,18 @@ import TermsOfServicePage from './pages/TermsOfServicePage';
 import AImlMediumPage from './pages/AImlMediumPage';
 import AImlAdvancedPage from './pages/AImlAdvancedPage';
 import AImlExpertPage from './pages/AImlExpertPage';
+import CoursesPage from './pages/CoursesPage';
+import CodingGuidancePage from './pages/CodingGuidancePage';
+import CareerTipsPage from './pages/CareerTipsPage';
+import HackathonsPage from './pages/HackathonsPage';
+import WorkshopsPage from './pages/WorkshopsPage';
+import FreelanceExchangePage from './pages/FreelanceExchangePage';
+import BlogPage from './pages/BlogPage';
+import PlacementPrepPage from './pages/PlacementPrepPage';
+import SuccessStoriesPage from './pages/SuccessStoriesPage';
+import ProjectMarketPage from './pages/ProjectMarketPage';
+import ResearchSupportPage from './pages/ResearchSupportPage';
+import AboutPage from './pages/AboutPage';
 
 // Import BOTH the default component and the named LessonPage component
 import AImlBeginnerPage, { LessonPage } from './pages/AImlBeginnerPage';
@@ -75,26 +87,26 @@ const App: React.FC = () => {
                         <Route path="/projects/:id" element={<ProjectDetailPage />} />
 
                         {/* Services */}
-                        <Route path="/services/courses" element={<PlaceholderPage />} />
-                        <Route path="/services/guidance" element={<PlaceholderPage />} />
-                        <Route path="/services/career" element={<PlaceholderPage />} />
-                        <Route path="/services/hackathons" element={<PlaceholderPage />} />
-                        <Route path="/services/workshops" element={<PlaceholderPage />} />
-                        <Route path="/services/freelance" element={<PlaceholderPage />} />
+                        <Route path="/services/courses" element={<CoursesPage />} />
+                        <Route path="/services/guidance" element={<CodingGuidancePage />} />
+                        <Route path="/services/career" element={<CareerTipsPage />} />
+                        <Route path="/services/hackathons" element={<HackathonsPage />} />
+                        <Route path="/services/workshops" element={<WorkshopsPage />} />
+                        <Route path="/services/freelance" element={<FreelanceExchangePage />} />
 
                         {/* Resources */}
-                        <Route path="/resources/blog" element={<PlaceholderPage />} />
-                        <Route path="/resources/placement" element={<PlaceholderPage />} />
-                        <Route path="/resources/success-stories" element={<PlaceholderPage />} />
-                        <Route path="/resources/project-market" element={<PlaceholderPage />} />
-                        <Route path="/resources/research" element={<PlaceholderPage />} />
+                        <Route path="/resources/blog" element={<BlogPage />} />
+                        <Route path="/resources/placement" element={<PlacementPrepPage />} />
+                        <Route path="/resources/success-stories" element={<SuccessStoriesPage />} />
+                        <Route path="/resources/project-market" element={<ProjectMarketPage />} />
+                        <Route path="/resources/research" element={<ResearchSupportPage />} />
 
                         {/* Community */}
                         <Route path="/community/join" element={<PlaceholderPage />} />
                         <Route path="/community/events" element={<PlaceholderPage />} />
 
                         <Route path="/community" element={<PlaceholderPage />} />
-                        <Route path="/about" element={<PlaceholderPage />} />
+                        <Route path="/about" element={<AboutPage />} />
                         <Route path="/services" element={<PlaceholderPage />} />
                         <Route path="/login" element={<PlaceholderPage />} />
                         <Route path="/privacy" element={<PrivacyPolicyPage />} />
