@@ -60,3 +60,58 @@ export const PROJECT_FILTERS = {
     language: ['Python', 'Solidity', 'JavaScript', 'C++', 'Swift', 'HTML/CSS'],
     level: ['Beginner', 'Intermediate', 'Advanced'],
 };
+
+export const MENU_ITEMS = {
+    Services: [
+        {
+            title: 'Learning Paths',
+            items: [
+                { title: 'Roadmaps', href: '/roadmaps', description: 'Step-by-step career paths', icon: 'map' },
+                { title: 'Courses', href: '/services/courses', description: 'Expert-led video courses', icon: 'school' },
+                { title: 'Coding Guidance', href: '/services/guidance', description: 'Best practices & standards', icon: 'code' },
+                { title: 'Career Tips', href: '/services/career', description: 'Resume & interview prep', icon: 'work' },
+            ]
+        },
+        {
+            title: 'Opportunities',
+            items: [
+                { title: 'Hackathons', href: '/services/hackathons', description: 'Compete & win prizes', icon: 'trophy' },
+                { title: 'Workshops', href: '/services/workshops', description: 'Live interactive sessions', icon: 'groups' },
+                { title: 'Freelance Exchange', href: '/services/freelance', description: 'Find paid projects', icon: 'attach_money' },
+            ]
+        }
+    ],
+    Resources: [
+        {
+            title: 'Knowledge Base',
+            items: [
+                { title: 'Blog', href: '/resources/blog', description: 'Tech articles & news', icon: 'article' },
+                { title: 'Placement Prep', href: '/resources/placement', description: 'Aptitude & technical prep', icon: 'business_center' },
+                { title: 'Success Stories', href: '/resources/success-stories', description: 'Alumni achievements', icon: 'stars' },
+            ]
+        },
+        {
+            title: 'Innovation',
+            items: [
+                { title: 'Project Market', href: '/resources/project-market', description: 'Buy & sell projects', icon: 'shopping_cart' },
+                { title: 'Research Support', href: '/resources/research', description: 'Paper writing & patents', icon: 'science' },
+            ]
+        }
+    ],
+    Community: [
+        {
+            title: 'Connect',
+            items: [
+                { title: 'Join Community', href: '/community/join', description: 'Discord, Telegram & WhatsApp', icon: 'forum' },
+                { title: 'Events', href: '/community/events', description: 'Past & upcoming meetups', icon: 'event' },
+            ]
+        },
+        {
+            title: 'Social',
+            items: [
+                { title: 'Instagram', href: 'https://instagram.com', description: 'Follow us for updates', icon: 'camera_alt' },
+                { title: 'LinkedIn', href: 'https://linkedin.com', description: 'Professional network', icon: 'linkedin' },
+            ]
+        }
+    ]
+};
